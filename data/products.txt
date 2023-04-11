@@ -1,1 +1,7 @@
-[{"id":1,"name":"jaramillo","description":"aaaaaaaaa","price":"15","qty":"25","category":"holiii"},{"id":2,"name":"jaramillo","description":"aaaaaaaaa","price":"15","qty":"25","category":"holiii"},{"id":3,"name":"jaramillo","description":"aaaaaaaaa","price":"15","qty":"25","category":"holiii"},{"id":4,"name":"jaramillo","description":"aaaaaaaaa","price":"15","qty":"25","category":"holiii"},{"id":5,"name":"jaramillo","description":"aaaaaaaaa","price":"15","qty":"25","category":"holiii"}]
+[{
+    "name": "Model x",
+    "description": "Tesla model x with turbo twins engines",
+    "price": 50000,
+    "qty": 1000,
+    "category": "cars"
+}]
