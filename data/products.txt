@@ -1,7 +1,1 @@
-[{
-    "name": "Model x",
-    "description": "Tesla model x with turbo twins engines",
-    "price": 50000,
-    "qty": 1000,
-    "category": "cars"
-}]
+[{"id":1,"name":"Model x","description":"Tesla model x with turbo twins engines","price":50000,"qty":1000,"category":"cars"}]

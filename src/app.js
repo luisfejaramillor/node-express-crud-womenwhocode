@@ -94,7 +94,17 @@ app.delete(
     // Delete product from parsedProducts array
     const index = parsedProducts.findIndex((e) => e.id === product.id);
     parsedProducts.splice(index, 1);
-    writeProducts(JSON.stringify(parsedProducts));
+
+    // This function reorders the ids of the remaining products in parsedProducts array starting from the index of the deleted product
+    const reorderId = parsedProducts.map((e,i) => {
+        if(i >= index){
+          e.id = e.id-1
+          return e
+        }
+        return {...e}
+    })
+
+    writeProducts(JSON.stringify(reorderId));
     res.send(`Producto ${product.name} fue eliminado`);
   }
 );
