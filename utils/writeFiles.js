@@ -1,9 +1,9 @@
-import {writeFile} from 'fs/promises'
+import { writeFile } from "fs/promises";
 
-export const writeProducts = async (data)=> {
-    try {
-      return await writeFile('./data/products.txt', data)
-    } catch (error) {
-      console.log(error)
-    }
+export const writeProducts = async (data) => {
+  try {
+    return await writeFile("./data/products.txt", data);
+  } catch (error) {
+    console.log(error);
   }
+};
