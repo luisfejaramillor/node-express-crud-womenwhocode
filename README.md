@@ -46,7 +46,7 @@ Example JSON body:
     "description": "Product description",
     "price": 10.99,
     "qty": 100,
-    "category": "Cars"
+    "category": "Product category"
 }
 ```
 
