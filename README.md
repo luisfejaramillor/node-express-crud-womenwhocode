@@ -31,12 +31,13 @@ Delete a product by ID.
 
 To create a product, make a `POST` request to `/api/v1/products` with a JSON body containing the following fields:
 
+```json
 {
-"name": "Product name",
-"description": "Product description",
-"price": 10.99,
-"qty": 100,
-"category": 1
+    "name": "Product name",
+    "description": "Product description",
+    "price": 10.99,
+    "qty": 100,
+    "category": 1
 }
 
 
