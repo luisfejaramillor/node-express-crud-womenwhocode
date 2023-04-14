@@ -39,7 +39,7 @@ To create a product, make a `POST` request to `/api/v1/products` with a JSON bod
     "qty": 100,
     "category": 1
 }
-
+```
 
 To update a product, make a `PATCH` request to `/api/v1/products/:id` with a JSON body containing the fields you want to update.
 
