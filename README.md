@@ -65,7 +65,7 @@ This project is open for contributions. Please submit a pull request or issue if
 
 ## Acknowledgements
 
-- Developers at Mint Bean Hackathon for providing the challenge for this project.
+- The challenge for this project was provided by the instructors at WomenWhoCode Medellín.
 - [Express.js documentation](https://expressjs.com/)
 - [Joi documentation](https://joi.dev/)
 
