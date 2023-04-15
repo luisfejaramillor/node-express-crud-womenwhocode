@@ -5,7 +5,7 @@ import { readProducts } from "../utils/readFiles.js";
 import { writeProducts } from "../utils/writeFiles.js";
 
 // Function to retrieve all products along with parsing incoming data
-const getProductsWithParsedData = async () => {
+export const getProductsWithParsedData = async () => {
   const products = await readProducts();
   if (!products) return [];
   return Array.from(JSON.parse(products));
@@ -33,7 +33,7 @@ export const createProduct = async (req, res) => {
     res.json(getProductById(firstProduct.id, Array.from(firstProduct)));
   }
   // Creating a new product with an incremented ID and writing it to the database
-  const newProduct = { id: parsedProducts.length + 1, ...req.body };
+  const newProduct = { id: Date.now(), ...req.body };
   parsedProducts.push(newProduct);
   writeProducts(JSON.stringify(parsedProducts));
 
@@ -78,16 +78,7 @@ export const deleteProduct = (req, res, next) => {
   // Removing the product from the products array
   const index = parsedProducts.findIndex((e) => e.id === product.id);
   parsedProducts.splice(index, 1);
-  // Reordering the remaining products' IDs after deletion
-  const reorderId = parsedProducts.map((e, i) => {
-    if (i >= index) {
-      e.id = e.id - 1;
-      return e;
-    }
-    return { ...e };
-  });
-  // Writing the reordered products data to the database
-  writeProducts(JSON.stringify(reorderId));
 
+  writeProducts(JSON.stringify(parsedProducts));
   res.send(`Product ${product.name} was deleted`);
 };

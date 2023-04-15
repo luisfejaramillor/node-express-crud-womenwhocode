@@ -5,6 +5,8 @@ import bodyParser from "body-parser";
 // Importing local middlewares and routes
 import { isFormatValid } from "./middlewares/isFormatValid.js";
 import appRoutes from "./routes/products.route.js";
+import { writeProducts } from "./utils/writeFiles.js";
+import { readProducts } from "./utils/readFiles.js";
 
 // Initializing the app and setting up the port number
 const app = express();
@@ -15,6 +17,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.text());
 app.use(isFormatValid);
+
+if ((await readProducts()) === "") {
+  await writeProducts("[]");
+}
+
 
 // Setting up routes for handling URL paths
 app.use("/api/v1", appRoutes);

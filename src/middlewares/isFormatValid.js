@@ -12,7 +12,10 @@ export const isFormatValid = (req, res, next) => {
   const schema = Joi.object({
     name: Joi.string().required(),
     description: Joi.string().required(),
-    price: Joi.number().integer().required(),
+    price: Joi.number().integer().required().messages({
+      'number.base': 'Price must be a number',
+      'number.integer': 'Price must be an integer'
+    }),
     qty: Joi.number().integer().required(),
     category: Joi.string().required(),
     id: Joi.forbidden(),
