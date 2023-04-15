@@ -6,9 +6,8 @@ import { writeProducts } from "../utils/writeFiles.js";
 
 // Function to retrieve all products along with parsing incoming data
 export const getProductsWithParsedData = async () => {
-  const products = await readProducts();
-  if (!products) return [];
-  return Array.from(JSON.parse(products));
+  if (!(await readProducts())) return [];
+  return Array.from(JSON.parse(await readProducts()));
 };
 
 // Retrieving parsed products data
@@ -26,13 +25,6 @@ export const getProduct = (req, res) => {
 
 // Function to create a new product
 export const createProduct = async (req, res) => {
-  if (!parsedProducts) {
-    const firstProduct = { id: 1, ...req.body };
-    await writeProducts(JSON.stringify(firstProduct));
-
-    res.json(getProductById(firstProduct.id, Array.from(firstProduct)));
-  }
-  // Creating a new product with an incremented ID and writing it to the database
   const newProduct = { id: Date.now(), ...req.body };
   parsedProducts.push(newProduct);
   writeProducts(JSON.stringify(parsedProducts));
@@ -41,7 +33,7 @@ export const createProduct = async (req, res) => {
 };
 
 // Function to update an existing product
-export const updateProduct = (req, res, next) => {
+export const updateProduct = (req, res) => {
   const product = getProductById(parseId(req.params.id), parsedProducts);
 
   const keys = Object.keys(req.body);

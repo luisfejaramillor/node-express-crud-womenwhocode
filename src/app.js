@@ -1,7 +1,6 @@
 // Importing required modules
 import express from "express";
 import bodyParser from "body-parser";
-
 // Importing local middlewares and routes
 import { isFormatValid } from "./middlewares/isFormatValid.js";
 import appRoutes from "./routes/products.route.js";
@@ -21,7 +20,6 @@ app.use(isFormatValid);
 if ((await readProducts()) === "") {
   await writeProducts("[]");
 }
-
 
 // Setting up routes for handling URL paths
 app.use("/api/v1", appRoutes);
