@@ -35,7 +35,7 @@ export const isFormatValid = (req, res, next) => {
   if (validMethods.includes(req.method)) {
     // Check whether the request body matches the schema or not
     if (schema.validate(req.body).error) {
-      res.status(404).json("Input format data is not valid");
+      res.status(404).json("Input body is not valid");
       return;
     }
     // Call next middleware function
