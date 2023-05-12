@@ -1,5 +1,5 @@
 // Importing necessary helper functions and modules
-import { Product } from "../models/productModel.js";
+import { Product } from "../models/index.js";
 
 export const getProduct = async (_, res) => {
   try {

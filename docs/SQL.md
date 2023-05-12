@@ -108,3 +108,17 @@ Elimina un registro de la tabla `productos`:
 DELETE FROM productos
 WHERE id = 2;
 ```
+### More Querys
+
+```pg
+SELECT * FROM products ORDER BY price, qty ASC;
+
+SELECT * FROM products ORDER BY qty, price ASC;
+
+SELECT * FROM products
+	WHERE qty > 0
+    AND price > 6
+    ORDER BY price ASC
+    OFFSET 2
+    LIMIT 2;
+```
